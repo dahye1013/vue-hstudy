@@ -1,4 +1,4 @@
-# hello-world
+# vue-hstudy
 
 ## VuePress로 만든 정리본 실행
 

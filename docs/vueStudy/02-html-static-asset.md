@@ -14,7 +14,7 @@
 - `<%- VALUE %>`HTML 이스케이프 보간
 - `<% expression %>`JavaScript 제어 흐름용.
 
-기본값으로 노출 되고 있는 `html-webpack-plugin` 외에도 client-side env 를 통해서 연결 할 수 있다.
+기본값으로 노출 되고 있는 `html-webpack-plugin` 외에도 client-side env 를 통해서 연결 할 수 있다. 
 
 [Modes and Environment Variables | Vue CLI](https://cli.vuejs.org/guide/mode-and-env.html#using-env-variables-in-client-side-code)
 
@@ -24,14 +24,14 @@
 
 ### Preload
 
-**`[<link rel="preload">](https://developer.mozilla.org/en-US/docs/Web/HTML/Preloading_content)`**
+**`[<link rel="preload">](https://developer.mozilla.org/en-US/docs/Web/HTML/Preloading_content)`** 
 
 - preload 는 선언적인 fetch이다. Document의 onload 이벤트를 막지 않으면서 브라우저가 자원을 요청하도록 강제 할 수 있다.
 - preload는 브라우저에게 페이지에 필요한 자원을 일찍 fetch 하라는 지침이다. 현재 페이지에서 사용될 것이 확실한 리소스 들을 `preload` 하는 것이다. 브라우저에 현재 페이지에서 필요한 리소스를 빨리 가져오게 한다.
 
 **[Vue version]**
 
-Vue 에서 **`[<link rel="preload">](https://developer.mozilla.org/en-US/docs/Web/HTML/Preloading_content)`** 페이지가 로드된 직후에 필요한 리소스를 지정하는데 사용되는 리소스 힌트 유형이다. 브라우저의 기본 렌더링 기계가 작동하기 전에 페이지 로드 수명 주기 초기에 미리 로드를 시작시킨다.
+Vue 에서 **`[<link rel="preload">](https://developer.mozilla.org/en-US/docs/Web/HTML/Preloading_content)`** 페이지가 로드된 직후에 필요한 리소스를 지정하는데 사용되는 리소스 힌트 유형이다. 브라우저의 기본 렌더링 기계가 작동하기 전에 페이지 로드 수명 주기 초기에 미리 로드를 시작시킨다. 
 
 기본적으로 Vue CLI 앱은 앱의 초기 렌더링에 필요한 모든 파일에 대한 사전 로드 힌트를 자동으로 생성한다. 힌트는 @vue/preload-webpack-plugin을 사용하여 주입 되며 chainWebpackas 를 통해 수정/삭제할 수 있다.
 
@@ -39,11 +39,11 @@ Vue 에서 **`[<link rel="preload">](https://developer.mozilla.org/en-US/docs/We
 
 ### **Prefetch**
 
-**`[<link rel="prefetch">](https://developer.mozilla.org/en-US/docs/Web/HTTP/Link_prefetching_FAQ)`**
+**`[<link rel="prefetch">](https://developer.mozilla.org/en-US/docs/Web/HTTP/Link_prefetching_FAQ)`** 
 
 - 미래에 사용될 것이라고 예상되는 리소스들을 prefetch 해야 한다. 브라우저는 미래에 사용 될 리소스들을 가져와 캐시에 저장한다.
 
-  ⇒ 사용자가 다음에 할 행동을 미리 준비하는데 적합한 기능이다.
+    ⇒ 사용자가 다음에 할 행동을 미리 준비하는데 적합한 기능이다. 
 
 - prefetch는 자원이 필요할 수 있다는 것을 브라우저에게 힌트를 주지만, 로딩할지 말지는 브라우저가 결정한다.
 
@@ -56,25 +56,25 @@ Vue 에서 **`[<link rel="preload">](https://developer.mozilla.org/en-US/docs/We
 ```jsx
 // vue.config.js
 module.exports = {
-  chainWebpack: (config) => {
+  chainWebpack: config => {
     // remove the prefetch plugin
-    config.plugins.delete('prefetch');
+    config.plugins.delete('prefetch')
 
     // or:
     // modify its options:
-    config.plugin('prefetch').tap((options) => {
-      options[0].fileBlacklist = options[0].fileBlacklist || [];
-      options[0].fileBlacklist.push(/myasyncRoute(.)+?\.js$/);
-      return options;
-    });
-  },
-};
+    config.plugin('prefetch').tap(options => {
+      options[0].fileBlacklist = options[0].fileBlacklist || []
+      options[0].fileBlacklist.push(/myasyncRoute(.)+?\.js$/)
+      return options
+    })
+  }
+}
 ```
 
-prefetch 플러그인이 비활성화된 경우, 웹팩 내부에서 수동적으로 필요한 부분을 등록 할 수 있다.
+prefetch 플러그인이 비활성화된 경우, 웹팩 내부에서  수동적으로 필요한 부분을 등록 할 수 있다.
 
 ```jsx
-import(/* webpackPrefetch: true */ './someAsyncComponent.vue');
+import(/* webpackPrefetch: true */ './someAsyncComponent.vue')
 ```
 
 > prefetch 링크는 대역폭을 크게 소모한다. 만약 사용해야 할 async chunk가 많거나 모바일 유저라서 대역폭 인식(bandwidth-aware)이 크다면, prefetch링크를 끄고 수동으로 등록해야 할 수 도 있다.
@@ -89,35 +89,35 @@ module.exports = {
   // disable hashes in filenames
   filenameHashing: false,
   // delete HTML related webpack plugins
-  chainWebpack: (config) => {
-    config.plugins.delete('html');
-    config.plugins.delete('preload');
-    config.plugins.delete('prefetch');
-  },
-};
+  chainWebpack: config => {
+    config.plugins.delete('html')
+    config.plugins.delete('preload')
+    config.plugins.delete('prefetch')
+  }
+}
 ```
 
-모든 app이 SPA일 필요는 없다. Vue CLI는 vue.config.js에서 페이지 옵션을 사용하여 다중 페이지 앱을 만들 수 있게 했다. 빌드된 앱은 최적의 로드 성능을 위해 복수의
+모든 app이 SPA일 필요는 없다. Vue CLI는 vue.config.js에서 페이지 옵션을 사용하여 다중 페이지 앱을 만들 수 있게 했다. 빌드된 앱은 최적의 로드 성능을 위해 복수의 
 
 ### Vue.js의 Lazy load
 
-Single Page Application(spa)의 고질적인 문제는 소스 코드가 하나로 뭉쳐져서 사용자가 처음 웹 사이트에 접속했을 때 큰 파일을 다운로드하고 파싱하느라 초기 렌더링이 느리다는 것이다.
+Single Page Application(spa)의 고질적인 문제는 소스 코드가 하나로 뭉쳐져서 사용자가 처음 웹 사이트에 접속했을 때 큰 파일을 다운로드하고 파싱하느라 초기 렌더링이 느리다는 것이다. 
 
 ## Static Assets Handling(정적 자산 핸들링)
 
 정적 자산은 두 가지 방법으로 핸들링 할 수 있다.
 
-1. **JavaScript에서 import 하거나, 상대 경로를 통해 템플릿/CSS 에서 참조된다.**
+1. **JavaScript에서 import 하거나, 상대 경로를 통해 템플릿/CSS 에서 참조된다.** 
 
-   — 이러한 참조는 webpack에서 처리된다.
+    — 이러한 참조는 webpack에서 처리된다.
 
 2. **public 디렉토리에 배치되고 절대 경로를 통해 참조된다.**
 
-   — webpack 을 거치지 않고, 복사된다.
+    —  webpack 을 거치지 않고, 복사된다.
 
 ### 상대경로 가져오기(Relative Path Imports)
 
-.JavaScript, CSS 또는 \*.vue파일 내에서 정적 자산을 참조할 때, 자산은 웹팩의 종속성 그래프에 포함되는 자산을 가진다. 이 컴파일 과정 등 모든 애셋 URL `<img src="...">` `background: url(...)`및 CSS가 `@import`되는 모듈 의존성으로 해결한다.
+.JavaScript, CSS 또는 *.vue파일 내에서 정적 자산을 참조할 때, 자산은 웹팩의 종속성 그래프에 포함되는 자산을 가진다. 이 컴파일 과정 등 모든 애셋 URL `<img src="...">`  `background: url(...)`및 CSS가 `@import`되는 모듈 의존성으로 해결한다. 
 
 예로 다음의 코드는
 
@@ -125,10 +125,10 @@ Single Page Application(spa)의 고질적인 문제는 소스 코드가 하나�
 <img src="./image.png">
 ```
 
-이처럼 컴파일 된다.
+이처럼 컴파일 된다. 
 
 ```jsx
-h('img', { attrs: { src: require('./image.png') } });
+h('img', { attrs: { src: require('./image.png') }})
 ```
 
 내부적으로는 `file-loader`버전 해시를 사용하여 최종 파일 위치를 결정하고 공개 기본 경로를 수정하고 `url-loader`4kb보다 작은 자산을 조건부로 인라인하여 HTTP 요청을 줄이는데 사용된다.
@@ -154,11 +154,13 @@ module.exports = {
 - URL이  `.`로 시작하면, 상대 모듈 요청으로 해석되고, 파일 시스템의 폴더 구조를 기반으로 확인한다.
 - URL이 `~` 로 시작하면, 뒤의 모든 항목은 모듈 요청으로 해석된다.  노드 모듈 내에서 자산을 참조할 수도 있다.
 
-  ```html
-  <img src="~some-npm-package/foo.png" />`
-  ```
+    ```html
+    <img src="~some-npm-package/foo.png">`
+    ```
 
 - URL이 로 시작 `@`하면 모듈 요청으로도 해석됩니다. Vue CLI는 기본적 `@`으로 `<projectRoot>/src` 처럼 루트에 있는 것을 참조하기에 좋다.
+
+ 
 
 ### The public Folder
 
@@ -181,7 +183,7 @@ public 디렉토리는 절대 경로를 통해 어디에 배치될 것인지를 
 `public/index.html`이나 `html- webpack-plugin`을 통해 템플릿으로 사용되는 HTML 파일에서 `<% = BASE_URL% >` 을 통해서 링크 접두사를 설정해야 한다.
 
 ```html
-<link rel="icon" href="<%= BASE_URL %>favicon.ico" />
+<link rel="icon" href="<%= BASE_URL %>favicon.ico">
 ```
 
 탬플릿에서는 URL 주소를 이처럼 표시할 수 있다.

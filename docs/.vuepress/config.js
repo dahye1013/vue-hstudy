@@ -38,6 +38,10 @@ module.exports = {
         link: '/vueStudy/',
       },
       {
+        text: 'Plugin',
+        link: '/vuePlugins/',
+      },
+      {
         text: 'Vue-Press',
         link: '/vuePress/',
       },
@@ -51,7 +55,17 @@ module.exports = {
         {
           title: 'VUE-CLI',
           collapsable: false,
-          children: ['', '01-browser-compatibility', '02-html-static-asset'],
+          children: [
+            '',
+            '01-browser-compatibility',
+            '02-html-static-asset',
+            '03-work-with-css',
+          ],
+        },
+        {
+          title: 'VUE-Plugin',
+          collapsable: false,
+          children: ['vp-00-basic', 'vp-01-prettier'],
         },
       ],
     },
