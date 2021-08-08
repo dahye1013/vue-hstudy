@@ -1,0 +1,14 @@
+{
+  "bracketSpacing": true,
+  "jsxBracketSameLine": false,
+  "jsxSingleQuote": false,
+  "singleQuote": true,
+  "semi": true,
+  "trailingComma": "all",
+  "useTabs": false,
+  "tabWidth": 2,
+  "printWidth": 80,
+  "eslintIntegration": true,
+  "formatOnSave": true,
+  "insertPragma": false
+}

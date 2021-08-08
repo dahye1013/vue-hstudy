@@ -1,17 +1,28 @@
 <!DOCTYPE html>
 <html lang="">
+  <!-- 인덱스 파일이 템플릿으로 사용되기 때문에 lodash 템플릿 구문을 사용하여 값을 보간 할 수 있다. 
+       ref : https://cli.vuejs.org/guide/html-and-static-assets.html#the-index-file
+    -->
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <!-- [client-side env 변수]
+        ref : https://cli.vuejs.org/guide/mode-and-env.html#using-env-variables-in-client-side-code
+    -->
+    <link rel="icon" href="<%= BASE_URL %>favicon.ico" />
+    <!-- [보간법] loadash템플릿 구문 보간, 이스케이프 처리 되지 않은 보간 용도이다. -->
     <title><%= htmlWebpackPlugin.options.title %></title>
   </head>
   <body>
+    <!-- [noscript] 스크립트를 지원하지 않는 브라우저를 위한 별도의 콘텐츠를 정의할 때 사용 -->
     <noscript>
-      <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+      <strong
+        ><%= htmlWebpackPlugin.options.title %> 화면을 불러 올 수 없습니다. 최신
+        브라우저를 사용해주세요.
+      </strong>
     </noscript>
+    <!-- [실제 영역] 뷰 프로젝트 빌드된 파일이 자동으로 삽입되는 영역이다. -->
     <div id="app"></div>
-    <!-- built files will be auto injected -->
   </body>
 </html>
