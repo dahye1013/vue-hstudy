@@ -38,10 +38,6 @@ module.exports = {
         link: '/vueStudy/',
       },
       {
-        text: 'Plugin',
-        link: '/vuePlugins/',
-      },
-      {
         text: 'Vue-Press',
         link: '/vuePress/',
       },
@@ -60,6 +56,8 @@ module.exports = {
             '01-browser-compatibility',
             '02-html-static-asset',
             '03-work-with-css',
+            '04-work-with-webpack',
+            '05-mode-and-environment-variables',
           ],
         },
         {
