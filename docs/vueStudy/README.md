@@ -272,22 +272,6 @@ yarn serve
 npx vue-cli-service serve
 ```
 
-/
-
-1. vue create + project name
-2. manually select features
-   1. Babel
-   2. TypeScript
-   3. Progressive Web App (PWA) support
-   4. Router
-   5. Vuex
-   6. CSS Pre-processors
-   7. Linter / Formatter
-   8. Unit Testing
-   9. E2E Testing
-
 ### 참고링크
-
-[Vue CLI](https://cli.vuejs.org/)
 
 [Vue CLI](https://cli.vuejs.org/zh/)

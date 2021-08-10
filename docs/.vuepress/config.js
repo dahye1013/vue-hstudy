@@ -58,6 +58,8 @@ module.exports = {
             '03-work-with-css',
             '04-work-with-webpack',
             '05-mode-and-environment-variables',
+            '06-build-target',
+            '07-troubleshoting',
           ],
         },
         {
