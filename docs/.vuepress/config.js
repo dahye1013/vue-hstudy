@@ -53,6 +53,7 @@ module.exports = {
           collapsable: false,
           children: [
             '',
+            '00-Vue-CLI-Doc',
             '01-browser-compatibility',
             '02-html-static-asset',
             '03-work-with-css',
