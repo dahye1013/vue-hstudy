@@ -1,8 +1,14 @@
-# Vue Cli - Doc
+# Vue Cli - DOC
 
-## Vue.js 개발 기본도구로서의 특징
+[주의사항]
+
+현재 `@vue/cli` 버전이 업데이트 되고 있으며, `vue-cli` 에 대해 참고하려면 old document를 참고해서 봐야함.
+
+## Vue.js의 개발의 표준 Tooling
 
 ---
+
+### 특징
 
 - **풍부한 기능**
 
@@ -50,6 +56,8 @@
    vue ui
    ```
 
+[Vue CLI 명령어](https://www.notion.so/2ee07b3069e146b1b4fec417f3539654)
+
 ## 소개
 
 ---
@@ -68,9 +76,7 @@
 
 Vue CLI 의 목적은 Vue 생태계를 위한 표준 Tool이 되는 것을 목표로 하고 있다. 다양한 빌드 도구가 기본 설정과 함께 원활하게 작동하도록 하여, 사용자가 설정을 잡는데 많은 시간을 소비하는 대신에 앱을 만드는데 집중 할 수 있도록 해준다. 또한, 각 Tool을 꺼내지 않고도 설정파일을 수정 할 수 있게 한다.
 
-### 컴포넌트 시스템
-
-- Vue CLI에는 몇가지 독립적인 부분이 있다. — 만약 당신이 원코드를 본다면, monorepo containing에서 패키지들을 분리해서 배포하는 것을 확인 할 수 있을 것이다.
+- Vue CLI에는 몇가지 독립적인 부분이 있다. — 만약 당신이 원코드를 본다면, monorepo containing에서 패키지들을 분리해서 배포하는 것을 확인 할 수 있다.
 
   [vue-cli/packages/@vue at dev · vuejs/vue-cli](https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue)
 
@@ -112,7 +118,7 @@ CLI 플러그인은 Babel/TypeScript 변환, ESLint 통합, 장치 Unit Testing,
 
 ‼️**Node Version Requirement**
 
-Vue CLI 4.x requires **[Node.js](https://nodejs.org/)** version 8.9 or above (v10+ recommended). You can manage multiple versions of Node on the same machine with **[n](https://github.com/tj/n)**, **[nvm](https://github.com/creationix/nvm)** or **[nvm-windows](https://github.com/coreybutler/nvm-windows)**.
+Vue CLI 4점대 버전은 Node.js 8.9 이상을 요구한다(10버전 이상을 추천한다).
 
 **npm 패키지 다운로드**
 
@@ -144,19 +150,37 @@ yarn global upgrade --latest @vue/cli
 
 ## Instant Prototyping
 
-vue serve와 vue build 명령을 사용하여 단일 \*. vue 파일을 빠르게 개발할 수 있습니다. 이 경우 확장 전체를 추가 설치
+vue serve와 vue build 명령을 사용하여 단일 \*. vue 파일로 프로토타이핑해서 할 수 있다.
+
+이를 위해서 하단의 명령어를 통해 Vue CLI를 설치해야한다.
 
 ```bash
 npm install -g @vue/cli-service-global
 ```
 
-`vue serve` 의 단점은 전역적으로 설치된 종속성에 의존
+`vue serve` 의 단점은 전역적으로 설치된 종속성(machine에 따라 일관적이지 않음)에 의존한다는 것이다.
 
-신속한 시제품 제작에만 권장
+그래서 신속한 시제품 제작에만 권장 한다.
+
+### vue serve
+
+vue serve는 vue 생성에서 생성된 프로젝트와 동일한 기본 설정(웹 팩, babel, postcss & eslint)을 사용하여 실행하는 명령어이다. 현재 디렉토리의 항목 파일(main.js, index.js, App.vue 또는 app.vue 중 하나)을 자동으로 추론하여 entry로 실행한다. entry 항목 파일을 명시적으로 지정할 수도 있다.
+
+```bash
+vue serve MyComponent.vue
+```
+
+### vue build
+
+vue 빌드를 사용하여 배포하기 위해 대상 파일을 프로덕션 번들로 작성할 수 있다.
+
+```bash
+vue build MyComponent.vue
+```
+
+vue 빌드를 사용하면 구성 요소를 라이브러리 또는 웹 구성 요소로 작성할 수도 있습니다. 자세한 내용은 빌드 대상을 참조하십시오.
 
 ## 프로젝트 생성하기
-
-### vue create
 
 ---
 
@@ -166,14 +190,19 @@ npm install -g @vue/cli-service-global
 vue create hello-world
 ```
 
-![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/437f978c-0904-4b64-a519-29e15fdc0c6b/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/437f978c-0904-4b64-a519-29e15fdc0c6b/Untitled.png)
+새 프로젝트를 신속하게 프로토타이핑하는 다양한 옵션을 제공한다.
+
+![https://cli.vuejs.org/cli-select-features.png](https://cli.vuejs.org/cli-new-project.png)
 
 1. default preset Babel + ESLint setup
 2. Manually select features - 내가 원하는 항목으로 선택하여 생성
 
-[**~/.vuerc]\*\*
+![https://cli.vuejs.org/cli-select-features.png](https://cli.vuejs.org/cli-select-features.png)
 
-preset을 저장하면 내 로컬 컴퓨터 directory에 `.vuerc` 이름으로 json file 형태로 저장되어져 있다. presets/option을 수정, 저장시 이 파일이 수정된다.
+수동으로 선택하도록 선택한 경우, 미리 설정(preset)으로 저장하여 나중에 다시 사용할 수 있는 옵션이 있다.
+
+> [**~/.vuerc]\*\*
+> preset을 저장하면 내 로컬 컴퓨터 directory에 `.vuerc` 이름으로 json file 형태로 저장되어져 있다. presets/option을 수정, 저장시 이 파일이 수정된다.
 
 ### Using the GUI
 
@@ -203,41 +232,27 @@ Vue CLI 는 플러그인 기반 아키텍처를 사용한다. 새로 생성된 �
 
 플러그인 기반 아키텍처는 Vue CLI를 유역하고, 확장성 있게 한다.
 
-### **플러그인 개발 가이드**
+### 플러그인 개발 가이드
 
 [Plugin Development Guide | Vue CLI](https://cli.vuejs.org/dev-guide/plugin-dev.html)
 
 ### 현재 프로젝트에 플러그인 설치하기
 
-각 CLI 플러그인은 (파일 생성용) 생성기와 (웹팩의 핵심 설정과 명령을 변경하기 위한) 실행 중인 플러그인을 포함합니다. vue create를 사용하여 새 프로젝트를 만들 때 선택한 기능에 따라 일부 플러그인이 미리 설치됩니다. 생성된 항목에 플러그인을 설치하려면 vue add 명령을 사용해도 됩니다:
+각 CLI 플러그인은 (파일 생성용) 생성기와 (웹팩의 핵심 설정과 명령을 변경하기 위한) 실행 중인 플러그인을 포함한다. vue create를 사용하여 새 프로젝트를 만들 때 선택한 기능에 따라 일부 플러그인이 미리 설치된다. 생성된 항목에 플러그인을 설치하려면 vue add 명령을 사용해도 된다.
 
 ```bash
 vue add eslint
 ```
 
-— `vue add`는 Vue CLI 플러그인을 설치하고 호출하도록 특별히 설계되었습니다. 일반 npm 패키지를 대체하는 것은 아닙니다. 일반 npm 패키지의 경우 선택한 패키지 관리자를 사용해야 합니다.
+— `vue add`는 Vue CLI 플러그인을 설치하고 호출하도록 특별히 설계되었다. 일반 npm 패키지를 대체하는 것은 아니다. 일반 npm 패키지의 경우 선택한 패키지 관리자를 사용해야 한다.
 
-> 경고 : `vue add`를 실행하기 전에 프로젝트의 *현재 상태를 커밋*하는 것이 좋습니다. 이 명령은 플러그인의 파일 생성기를 호출하고 기존 파일을 변경할 수 있습니다.
+> 경고 : `vue add`를 실행하기 전에 프로젝트의 *현재 상태를 커밋*하는 것이 좋다.
 
 다음과 같은 명령어로도 실행 가능하다.
 
 ```bash
 vue add @vue/cli-plugin-eslint
 ```
-
-Without the `@vue` prefix, the command will resolve to an unscoped package instead. For example, to install the 3rd party plugin `vue-cli-plugin-apollo`:
-
-`# installs and invokes vue-cli-plugin-apollo vue add apollo`
-
-You can also use 3rd party plugins under a specific scope. For example, if a plugin is named `@foo/vue-cli-plugin-bar`, you can add it with:
-
-`vue add @foo/bar`
-
-You can pass generator options to the installed plugin (this will skip the prompts):
-
-`vue add eslint --config airbnb --lintOn save`
-
-If a plugin is already installed, you can skip the installation and only invoke its generator with the `vue invoke` command. The command takes the same arguments as `vue add`.
 
 ## CLI 서비스
 
@@ -273,5 +288,7 @@ npx vue-cli-service serve
 ```
 
 ### 참고링크
+
+[Vue CLI](https://cli.vuejs.org/)
 
 [Vue CLI](https://cli.vuejs.org/zh/)

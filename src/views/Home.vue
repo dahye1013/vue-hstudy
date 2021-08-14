@@ -2,8 +2,7 @@
   <div class="home">
     <img alt="Vue logo" src="@/assets/images/cactus.jpg" />
     <!-- <img alt="Vue logo" src="@/assets/logo.png" /> -->
-    <HelloWorld msg="Welcome to Your Vue.js App" />
-    <p class="red-font">red</p>
+    <HelloWorld :msg="title" />
   </div>
 </template>
 
@@ -16,6 +15,11 @@ export default {
   components: {
     HelloWorld,
   },
+  data() {
+    return {
+      title: process.env.VUE_APP_TITLE,
+    };
+  },
 };
 </script>
 
@@ -23,6 +27,9 @@ export default {
 $red-color: red;
 .red-font {
   color: $red-color;
+}
+.title {
+  font-size: 30px;
 }
 //
 </style>

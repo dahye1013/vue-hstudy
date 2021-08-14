@@ -66,7 +66,7 @@ module.exports = {
         {
           title: 'VUE-Plugin',
           collapsable: false,
-          children: ['vp-00-basic', 'vp-01-prettier'],
+          children: ['vp-00-basic', 'vp-01-prettier', 'vp-02-pwa'],
         },
       ],
     },

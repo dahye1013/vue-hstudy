@@ -92,6 +92,11 @@ export default {
   props: {
     msg: String,
   },
+  methods: {
+    name() {
+      console.log('dsafasdf');
+    },
+  },
 };
 </script>
 

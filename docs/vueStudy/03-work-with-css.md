@@ -2,17 +2,17 @@
 
 ## 참조 자산 (Referencing Assets)
 
-컴파일 된 모든 CSS는 css-loader에 의해 `url()` 로 파싱되어 모듈 요청으로 구문을 분석하고 해결합니다. 이것은 상대 경로를 사용하여 자산을 참조 할 수 있다는 것을 의미합니다.
+컴파일 된 모든 CSS는 css-loader에 의해 `url()` 로 파싱되어 모듈 요청으로 구문을 분석하고 해결한다. 이것은 상대 경로를 사용하여 자산을 참조 할 수 있다는 것을 의미한다.
 
-만약 참조 파일이 npm 종속성 내부 혹은 웹팩을 통해 참조하는 경우, 모호성을 피하기 위해 경로에 `~` 접두사를 붙여야 합니다.
+만약 참조 파일이 npm 종속성 내부 혹은 웹팩을 통해 참조하는 경우, 모호성을 피하기 위해 경로에 `~` 접두사를 붙여야 한다.
 
 [HTML and Static Assets | Vue CLI](https://cli.vuejs.org/guide/html-and-static-assets.html#relative-path-imports)
 
 ## 전처리기(Pre-Processors)
 
-프로젝트 생성시에 전처리기 (Sass/Less/Stylus) 를 선택할 수 있습니다.
+프로젝트 생성시에 전처리기 (Sass/Less/Stylus) 를 선택할 수 있다.
 
-프로젝트 생성 후에는 하단의 명령어를 통해서 수동으로 설치 할 수 있습니다.
+프로젝트 생성 후에는 하단의 명령어를 통해서 수동으로 설치 할 수 있다.
 
 ```bash
 # Sass
@@ -25,7 +25,7 @@ npm install -D less-loader less
 npm install -D stylus-loader stylus
 ```
 
-> **웹팩 4에 대한 참고 사항** — webpack4 사용하는 경우(vue cli4의 기본) 를 사용할 때 로더가 버전 4와 호환되는지 확인해야 합니다. 그렇지 않으면 다른 종속성들과 conflicting 오류가 발생합니다.
+> **웹팩 4에 대한 참고 사항** — webpack4 사용하는 경우(vue cli4의 기본) 를 사용할 때 로더가 버전 4와 호환되는지 확인해야한다. 그렇지 않으면 다른 종속성들과 conflicting 오류가 발생한다.
 
 ### 자동 가져오기(Automatic imports)
 

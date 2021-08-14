@@ -8,13 +8,14 @@
 const PreloadWebpackPlugin = require('@vue/preload-webpack-plugin');
 
 module.exports = {
-  publicPath: process.env.NODE_ENV === 'production' ? '/production-sub-path' : '/',
+  publicPath:
+    process.env.NODE_ENV === 'production' ? '/production-sub-path' : '/',
   // [웹팩 옵션 추가]--------------------------------------------
   configureWebpack: {
     plugins: [
       // new HtmlWebpackPlugin(),
       new PreloadWebpackPlugin({
-        rel: 'preload',
+        rel: 'prefetch',
         include: 'asyncChunks',
       }),
     ],
@@ -79,7 +80,9 @@ module.exports = {
      * - style-resources-loader
      */
     const types = ['vue-modules', 'vue', 'normal-modules', 'normal'];
-    types.forEach((type) => addStyleResource(config.module.rule('stylus').oneOf(type)));
+    types.forEach((type) =>
+      addStyleResource(config.module.rule('stylus').oneOf(type)),
+    );
     function addStyleResource(rule) {
       rule
         .use('style-resource')

@@ -47,6 +47,8 @@
 
     lint — 소스 코드작성 규칙 검사
 
+    [CLI ](https://www.notion.so/a6f97629839c4ee7bade61a4f908cd49)
+
   - **노드버전 확인**
 
     node -v
@@ -119,49 +121,138 @@
 
 ---
 
-### Vue CLI 플러그인
+## Vue CLI 플러그인
 
-1. **Babel**
-   - 최신 사양의 JS 를 구형 브라우저에서도 작동하도록 ES5 이하 버전의 JS로 트랜스파일링하는 것이다.
-   - Transpile mordern JS to older version(for compatibility)
-2. **TypeScript**
-   - 타입스크립트를 지원한다.
-   - Add support for the TypeScript Language
-3. **Progressive Web App(PWA) support**
-   - PWA?
-   - improve performances with features like Web manifest and Service workers
-4. **Router**
-   - 동적 페이지로 앱 구조화
-   - Structure the app with dynamic pages
-   - **Vue Router History Mode**
-   - [Router](https://www.notion.so/Router-032c1373e3094efebc45dfc448ed684d)
-5. **Vuex**
-   - 중앙 집중식으로 앱 상태 관리
-   - Manage the app state with a centralized store
-   - [Vuex](https://www.notion.so/Vuex-c0693b60b2ab4a598cc8a630675f0697)
-6. **CSS Pre-processor**
-   - Sass, Less 또는 Stylus 를 지원하는 CSS 전처리기
-   - vue-loader은 다른 웹팩 로더를 사용하여 컴포넌트 일부를 처리하도록 해준다.
-   - Add support for CSS pre-processors like Sass, Less or Stylus
-   - **Dart-sass / Node-sass의 차이?**
-7. **Linter/Formatter**
-   - **ESLintf**
-   - **Prettier**
-   - Check and enforce code quality with ESLint or Prettier
-8. **Unit Testing**
+### Babel \*\*\*\*
 
-   - 컴포넌트단위 테스트 — 상태, 메소드 컴포넌트 등의 정의된 프로그램 최소 단위들이 독립적으로 정상 동작하는지 확인
+- 최신 사양의 JS 를 구형 브라우저에서도 작동하도록 ES5 이하 버전의 JS로 트랜스파일링
+- Transpile mordern JS to older version(for compatibility)
 
-   [Jest와 Vue Test Utils(VTU)로 Vue 컴포넌트 단위(Unit) 테스트](https://heropy.blog/2020/05/20/vue-test-with-jest/)
+### **TypeScript**
 
-   - **Mocha**
-   - **Chai**
-   - **Jest**
-   - Add a Unit Testing solution like Jest or Mocha
+- 타입스크립트를 지원한다.
+- Add support for the TypeScript Language
 
-9. **E2E Testing**
-   - 프로젝트단위 테스트
-   - Add an End-to-End testing solution to the app like Cypress or Nightwatch
+### **Progressive Web App(PWA) support**
+
+- **PWA?**
+
+  웹과 네이티브 앱의 기능 모두의 이점을 갖도록 기술과 표준 패턴을 사용하여 개발된 웹 앱이다.
+
+  **웹앱** → 발견이 쉽다. 어플 설치보다 웹 사이트 방문이 쉽고 빠르며 링크 공유가능
+
+  **네이티브 앱** → 운영체제와 잘 통합되어 더 좋은 사용자 경험 제공하며, 설치하여 오프라인 동작 가능.
+
+  ⇒ **PWA**는 동일한 이점을 즐길 수 있는 **웹앱 생성 능력**을 제공한다.
+
+  참고링크 : [https://developer.mozilla.org/ko/docs/Web/Progressive_web_apps/소개](https://developer.mozilla.org/ko/docs/Web/Progressive_web_apps/%EC%86%8C%EA%B0%9C)
+
+- improve performances with features like Web manifest and Service workers
+
+### **Router**
+
+- 동적 페이지로 앱 구조화
+- Structure the app with dynamic pages
+- **Vue Router History Mode**
+- [Router](https://www.notion.so/Router-032c1373e3094efebc45dfc448ed684d)
+
+### Vuex
+
+- 중앙 집중식으로 앱 상태 관리
+- Manage the app state with a centralized store
+- [Vuex](https://www.notion.so/Vuex-c0693b60b2ab4a598cc8a630675f0697)
+
+### **CSS Pre-processor**
+
+- Sass, Less 또는 Stylus 를 지원하는 CSS 전처리기
+- vue-loader은 다른 웹팩 로더를 사용하여 컴포넌트 일부를 처리하도록 해준다.
+- Add support for CSS pre-processors like Sass, Less or Stylus
+- **Dart-sass / Node-sass의 차이?**
+
+  - Node-Sass or Sass
+
+    - Node-Sass: Fast because of LibSass
+
+      —> 현재 유지관리는 되고 있으나 deprecated(폐지 2020년 12월) 됨.
+
+      Warning: LibSass and Node Sass are deprecated. While they will continue to receive maintenance releases indefinitely, there are no plans to add additional features or compatibility with any new CSS or Sass features. Projects that still use it should move onto Dart Sass.
+
+      [node-sass](https://www.npmjs.com/package/node-sass)
+
+    - Dart-Sass (JS compiled version): Not fast as Node-Sass
+    - Dart-Sass (Dart version runs in Dart VM): the fastest
+
+    [The CSS Preprocessor Dilemma : Node-Sass or Dart-Sass](https://itnext.io/the-css-preprocessor-dilemma-node-sass-or-dart-sass-32a0a096572)
+
+### **Linter/Formatter**
+
+- **ESLint**
+  - **EsLint**는 ES + Lint이다
+  - 코딩 스타일 가이드를 따르지 않거나 문제가 있는 코드나 안티 패턴을 찾기 위해 사용하는 **Javasciprt Linter**이다.
+  - 스타일 가이드(built-in rule)을 제공하지만 개발자가 자신의 스타일 가이드를 작성할 수도 있다.
+  - 자바스크립트는 컴파일 과정이 없는 인터프리터 언어로 런타임 에러가 발생할 확률이 높아 사전에 에러를 잡아주는 용도로 활용 된다.
+  - **Airbnb**나 **google**에서 스타일 가이드를 제공하고 있다.
+- **Prettier**
+  - Code Formatter(정해진 코딩 스타일을 따르게 변환해주는 도구) 중 하나로 최근 많은 인기를 얻고 있다.
+- Check and enforce code quality with ESLint or Prettier
+
+### **Unit Testing**
+
+- 컴포넌트단위 테스트
+- 상태, 메소드 컴포넌트 등의 정의된 프로그램 최소 단위들이 독립적으로 정상 동작하는지 확인
+- Vue.js 생태계에서 사용되는 일반적인 단위 테스팅 도구에는 Mocha와 Jest가 있다.
+
+[Jest와 Vue Test Utils(VTU)로 Vue 컴포넌트 단위(Unit) 테스트](https://heropy.blog/2020/05/20/vue-test-with-jest/)
+
+**[추천도구]**
+
+- **Mocha**
+
+  핵심 테스트 프레임워크로, describe, it과 같은 테스팅 함수와 테스트 실행 관련 주요 함수를 제공한다.
+
+  [Mocha - the fun, simple, flexible JavaScript test framework](https://mochajs.org/)
+
+- **Jest**
+
+  페이스북에서 만든 테스트 프레임워크로 Vue Test Utils에서 권장하는 테스트 러너
+
+  Jest는 단순성에 초점을 맞춘 JavaScript 테스트 프레임워크이다. 애플리케이션의 단위를 확인하는 기능을 제공하기 위해 테스트의 스냅 샷을 찍는다.
+
+- Add a Unit Testing solution like Jest or Mocha
+
+### **E2E Testing**
+
+- Add an End-to-End testing solution to the app like Cypress or Nightwatch
+- 프로젝트단위 테스트(종단간 (E2E) 테스팅)
+- E2E 테스트는 애플리케이션의 모든 계층을 검증한다. 프론트엔드 코드 뿐만 아니랏 ㅏ용자가 있을 환경을나타내는 백엔드 서비스 및 인프라가 포함된다. 사용자의 동작이 애플리케이션에 미치는 영향을 테스트한다.
+
+**[테스팅 프레임워크 선택시 유의사항]**
+
+1. 크로스-브라우저 테스팅
+   - 여러 브라우저에서 테스트 할 수 있어야 한다.
+2. 빠른 피드백
+   - 일반적인 E2E 테스팅 프레임워크는 병렬화 같은기능을 추가하여 문제를 해결하는데 도움을 준다. CI/CD 파이프라인(지속적 통합 및 배포)이 더 빠르게 실행한다.
+     - CI/CD 파이프라인이란?
+3. 헤드리스 모드의 가시성
+   - 지속적 통합/배포 파이프라인에서 계속 종단간 테스트를 실행하려면 헤드리스 브라우저에서 실행되는 경우가 많다.(즉, 사용자가 볼 수 있는 브라우저가 열리지 않음). 결과적으로 E2E 테스팅 프레임워크가 오류 발생 원인에 대한 통찰력 제공을 위해 지원하는 기능이 필요하다.
+
+**[추천도구]**
+
+- **Cypress.io**
+
+  개발자가 애플리케이션을 안정적으로 테스트하는 동시에 최고의 개발 경험을 제공하여 개발자 생산성을 높이는 것을 목표로하는 테스팅 프레임워크
+
+- **Nightwatch.js**
+
+  Node.js의 단위, 통합 테스팅은 물론 웹 애플리케이션과 웹 사이트를 테스트하는 데 사용할 수 있는 종단간 테스팅 프레임워크
+
+- **Puppeteer**
+
+  Puppeteer는 브라우저를 제어하기 위한 고급 API를 제공하고 다른 테스트 실행기 (예 : Jest)와 연동하여 애플리케이션을 테스트할 수 있는 노드 라이브러리
+
+- **TestCafe**
+
+  TestCafe는 Node.js 기반의 단순한 프레임워크로, 개발자가 작성하기 쉽고 안정적인 테스트 작성에 집중할 수 있도록 손쉬운 설정을 제공
 
 ---
 

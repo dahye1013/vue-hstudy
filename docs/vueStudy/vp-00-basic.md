@@ -18,33 +18,6 @@ Vue CLI는 플러그인 기반 아키텍처를 사용한다. 새로 만든 프�
 
 Vue-CLI 로 프로젝트 생성시에 사용되는 manually select features 위주로 알아보기
 
-- Babel
-- TypeScript
-  - class style component syntax
-- Progressive Web App (PWA) support
-- Router
-  - history mode
-- Vuex
-- CSS Pre-processors
-  - Sass/SCSS(with dart-sass)
-  - Sass/SCSS(with node-sass)
-  - Less
-  - Stylus
-- Linter / Formatter
-  - ESLint (AirBnb, Standard config)
-  - Prettier
-  - TSLint(deprecated)
-- Unit Testing
-  - Mocha +Chai
-  - check
-- E2E Testing
+vue create 시에 확인 가능한 플러그인들은 VUE-CLI Basic에 정리되어 있음.
 
-  - Cypress(Chrome only)
-  - Nightwatch(WebDriver-based)
-  - Webdriver10(WebDriver/DevTools based)
-    => pick test browser
-
-- (+) placing config for Babel, ESLint, etc
-  - dedicated config files
-  - in package.json
-    -> 두 방식의 차이 점도 찾아보자
+이외에 자세한 옵션 알아보는 경우에만 여기에 내용 추가
