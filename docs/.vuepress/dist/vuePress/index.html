@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>VuePress | Vue HStudy</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    
+    <meta name="description" content="">
+    <meta name="theme-color" content="#3eaf7c">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    
+    <link rel="preload" href="/assets/css/0.styles.76a0677b.css" as="style"><link rel="preload" href="/assets/js/app.ccdd7dc9.js" as="script"><link rel="preload" href="/assets/js/2.cd210312.js" as="script"><link rel="preload" href="/assets/js/9.57a08b59.js" as="script"><link rel="prefetch" href="/assets/js/10.a4b5a017.js"><link rel="prefetch" href="/assets/js/11.0cc1039c.js"><link rel="prefetch" href="/assets/js/12.14a2d88e.js"><link rel="prefetch" href="/assets/js/13.cf2b785b.js"><link rel="prefetch" href="/assets/js/14.053af1b1.js"><link rel="prefetch" href="/assets/js/15.52b9f270.js"><link rel="prefetch" href="/assets/js/16.c2c81773.js"><link rel="prefetch" href="/assets/js/17.2d930793.js"><link rel="prefetch" href="/assets/js/18.a31162fc.js"><link rel="prefetch" href="/assets/js/19.9dcf5086.js"><link rel="prefetch" href="/assets/js/20.1617738d.js"><link rel="prefetch" href="/assets/js/3.b2051f18.js"><link rel="prefetch" href="/assets/js/4.8fdc822b.js"><link rel="prefetch" href="/assets/js/5.2c978c15.js"><link rel="prefetch" href="/assets/js/6.b06d1fd3.js"><link rel="prefetch" href="/assets/js/7.e0102d67.js"><link rel="prefetch" href="/assets/js/8.c9e97341.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.76a0677b.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">Vue HStudy</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/vueStudy/" class="nav-link">
+  Vue-Study
+</a></div><div class="nav-item"><a href="/vuePress/" aria-current="page" class="nav-link router-link-exact-active router-link-active">
+  Vue-Press
+</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/vueStudy/" class="nav-link">
+  Vue-Study
+</a></div><div class="nav-item"><a href="/vuePress/" aria-current="page" class="nav-link router-link-exact-active router-link-active">
+  Vue-Press
+</a></div> <!----></nav>  <!----> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="vuepress"><a href="#vuepress" class="header-anchor">#</a> VuePress</h1> <h2 id="vuepress-2"><a href="#vuepress-2" class="header-anchor">#</a> VuePress?</h2> <p>VuePress는 최소한의 정적 사이트 생성기 의 두 부분으로 구성됩니다.  Vue 기반 테마 시스템 및 플러그인 API , 기술 문서 작성에 최적화된 기본 테마를 사용합니다.  Vue 자체 하위 프로젝트의 문서화 요구 사항을 지원하기 위해 만들어졌습니다.</p> <p>VuePress에서 생성된 각 페이지에는 사전 렌더링된 자체 정적 HTML이 있어 뛰어난 로딩 성능을 제공하고 SEO 친화적입니다. 그러나 페이지가 로드되면 Vue가 정적 콘텐츠를 인수하여 완전한 단일 페이지 애플리케이션(SPA)으로 전환합니다. 사용자가 사이트를 탐색할 때 요청에 따라 추가 페이지를 가져옵니다.</p> <h2 id="작동원리"><a href="#작동원리" class="header-anchor">#</a> 작동원리</h2> <p>VuePress 사이트는 사실 Vue, Vue Router, Web pack으로 만들어진 SPA이다.</p> <p>이전에 Vue를 사용한 적이 있다면 사용자 정의 테마를 작성하거나 개발할 때 친숙한 개발 경험을 가질 것이다.  (Vue DevTools를 사용하여 사용자 정의 테마를 디버그할 수도 있다!)</p> <p>빌드하는 동안 앱의 서버 렌더링 버전을 만들고 각 경로를 가상으로 방문하여 해당 HTML을 렌더링하. 이 접근 방식은 <strong><a href="https://nuxtjs.org/" target="_blank" rel="noopener noreferrer">Nuxt에서<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></strong> 영감을 밧았고, <code>nuxt generate</code>명령 및 <strong><a href="https://www.gatsbyjs.org/" target="_blank" rel="noopener noreferrer">Gatsby<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></strong> 와 같은 기타 프로젝트와 유사하다.</p> <p>각 Markdown 파일은 <strong><a href="https://github.com/markdown-it/markdown-it" target="_blank" rel="noopener noreferrer">markdown-it<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></strong> 사용하여 HTML로 컴파일된다. 그런 다음 Vue 구성 요소의 템플릿으로 처리된다. 이를 통해 Markdown 파일 내에서 Vue를 직접 사용할 수 있으며 동적 콘텐츠를 포함해야 할 때 유용하다.</p> <h2 id="시작하기"><a href="#시작하기" class="header-anchor">#</a> 시작하기</h2> <ul><li>기존 프로젝트가 있는 경우 3단계 부터 시작하면 됨.</li> <li>내 경우, Vue-cli 연습과정중이므로 vue-cli로 프로젝트 생성한 버전에 적용함.</li></ul> <ol><li>디렉토리 생성 및 변경</li></ol> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">mkdir</span> vuepress-starter <span class="token operator">&amp;&amp;</span> <span class="token builtin class-name">cd</span> vuepress-starter
+</code></pre></div><ol><li>패키지 관리자 초기화</li></ol> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">npm</span> init
+</code></pre></div><ol><li>로컬로 VuePress 설치;</li></ol> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">npm</span> <span class="token function">install</span> -D vuepress
+</code></pre></div><ol><li>docs 디렉토리와 기본 마크업 파일 생성</li></ol> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">mkdir</span> docs <span class="token operator">&amp;&amp;</span> <span class="token builtin class-name">echo</span> <span class="token string">'# Hello VuePress'</span> <span class="token operator">&gt;</span> docs/README.md
+</code></pre></div><ol><li>실행 script 추가
+<ul><li>이 부분은 옵셔널하지만, 강력하게 추천된다.</li></ul></li></ol> <div class="language-json extra-class"><pre class="language-json"><code><span class="token punctuation">{</span>
+  <span class="token property">&quot;scripts&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">&quot;docs:dev&quot;</span><span class="token operator">:</span> <span class="token string">&quot;vuepress dev docs&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;docs:build&quot;</span><span class="token operator">:</span> <span class="token string">&quot;vuepress build docs&quot;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><ol><li>문서 파일 로컬 서버로 실행</li></ol> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">npm</span> run docs:dev
+</code></pre></div><h2 id="디렉토리-구조"><a href="#디렉토리-구조" class="header-anchor">#</a> 디렉토리 구조</h2> <p>권장되는 구조는 다음과 같다.</p> <div class="language-bash extra-class"><pre class="language-bash"><code>├── docs
+│   ├── .vuepress <span class="token punctuation">(</span>Optional<span class="token punctuation">)</span>
+│   │   ├── components <span class="token punctuation">(</span>Optional<span class="token punctuation">)</span>
+│   │   ├── theme <span class="token punctuation">(</span>Optional<span class="token punctuation">)</span>
+│   │   │   └── Layout.vue
+│   │   ├── public <span class="token punctuation">(</span>Optional<span class="token punctuation">)</span>
+│   │   ├── styles <span class="token punctuation">(</span>Optional<span class="token punctuation">)</span>
+│   │   │   ├── index.styl
+│   │   │   └── palette.styl
+│   │   ├── templates <span class="token punctuation">(</span>Optional, Danger Zone<span class="token punctuation">)</span>
+│   │   │   ├── dev.html
+│   │   │   └── ssr.html
+│   │   ├── config.js <span class="token punctuation">(</span>Optional<span class="token punctuation">)</span>
+│   │   └── enhanceApp.js <span class="token punctuation">(</span>Optional<span class="token punctuation">)</span>
+│   │ 
+│   ├── README.md
+│   ├── guide
+│   │   └── README.md
+│   └── config.md
+│ 
+└── package.json
+</code></pre></div><p><a href="https://vuepress.vuejs.org/guide/getting-started.html#manual-installation" target="_blank" rel="noopener noreferrer">Getting Started | VuePress<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.ccdd7dc9.js" defer></script><script src="/assets/js/2.cd210312.js" defer></script><script src="/assets/js/9.57a08b59.js" defer></script>
+  </body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Prettier | Vue HStudy</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    
+    <meta name="description" content="">
+    <meta name="theme-color" content="#3eaf7c">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    
+    <link rel="preload" href="/assets/css/0.styles.76a0677b.css" as="style"><link rel="preload" href="/assets/js/app.ccdd7dc9.js" as="script"><link rel="preload" href="/assets/js/2.cd210312.js" as="script"><link rel="preload" href="/assets/js/19.9dcf5086.js" as="script"><link rel="prefetch" href="/assets/js/10.a4b5a017.js"><link rel="prefetch" href="/assets/js/11.0cc1039c.js"><link rel="prefetch" href="/assets/js/12.14a2d88e.js"><link rel="prefetch" href="/assets/js/13.cf2b785b.js"><link rel="prefetch" href="/assets/js/14.053af1b1.js"><link rel="prefetch" href="/assets/js/15.52b9f270.js"><link rel="prefetch" href="/assets/js/16.c2c81773.js"><link rel="prefetch" href="/assets/js/17.2d930793.js"><link rel="prefetch" href="/assets/js/18.a31162fc.js"><link rel="prefetch" href="/assets/js/20.1617738d.js"><link rel="prefetch" href="/assets/js/3.b2051f18.js"><link rel="prefetch" href="/assets/js/4.8fdc822b.js"><link rel="prefetch" href="/assets/js/5.2c978c15.js"><link rel="prefetch" href="/assets/js/6.b06d1fd3.js"><link rel="prefetch" href="/assets/js/7.e0102d67.js"><link rel="prefetch" href="/assets/js/8.c9e97341.js"><link rel="prefetch" href="/assets/js/9.57a08b59.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.76a0677b.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">Vue HStudy</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/vueStudy/" class="nav-link router-link-active">
+  Vue-Study
+</a></div><div class="nav-item"><a href="/vuePress/" class="nav-link">
+  Vue-Press
+</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/vueStudy/" class="nav-link router-link-active">
+  Vue-Study
+</a></div><div class="nav-item"><a href="/vuePress/" class="nav-link">
+  Vue-Press
+</a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>VUE-CLI</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/vueStudy/" aria-current="page" class="sidebar-link">Vue CLI - Basic</a></li><li><a href="/vueStudy/00-Vue-CLI-Doc.html" class="sidebar-link">Vue Cli - DOC</a></li><li><a href="/vueStudy/01-browser-compatibility.html" class="sidebar-link">Browser Compatibility</a></li><li><a href="/vueStudy/02-html-static-asset.html" class="sidebar-link">HTML 및 정적자산</a></li><li><a href="/vueStudy/03-work-with-css.html" class="sidebar-link">Working with CSS</a></li><li><a href="/vueStudy/04-work-with-webpack.html" class="sidebar-link">Working with WebPack</a></li><li><a href="/vueStudy/05-mode-and-environment-variables.html" class="sidebar-link">Modes</a></li><li><a href="/vueStudy/06-build-target.html" class="sidebar-link">Build Target</a></li><li><a href="/vueStudy/07-troubleshoting.html" class="sidebar-link">Troubleshooting</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>VUE-Plugin</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/vueStudy/vp-00-basic.html" class="sidebar-link">Plugins</a></li><li><a href="/vueStudy/vp-01-prettier.html" aria-current="page" class="active sidebar-link">Prettier</a></li><li><a href="/vueStudy/vp-02-pwa.html" class="sidebar-link">Progressive Web Application</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="prettier"><a href="#prettier" class="header-anchor">#</a> Prettier</h1> <p>Prettier는 코드를 읽어들여서 사용자 옵션에 따라 코드를 다시 포맷팅하는 코드 포맷터</p> <div class="language-json extra-class"><pre class="language-json"><code><span class="token punctuation">{</span>
+  <span class="token property">&quot;arrowParens&quot;</span><span class="token operator">:</span> <span class="token string">&quot;avoid&quot;</span><span class="token punctuation">,</span> <span class="token comment">// 화살표 함수 괄호 사용 방식</span>
+  <span class="token property">&quot;bracketSpacing&quot;</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span> <span class="token comment">// 객체 리터럴에서 괄호에 공백 삽입 여부</span>
+  <span class="token property">&quot;endOfLine&quot;</span><span class="token operator">:</span> <span class="token string">&quot;auto&quot;</span><span class="token punctuation">,</span> <span class="token comment">// EoF 방식, OS별로 처리 방식이 다름</span>
+  <span class="token property">&quot;htmlWhitespaceSensitivity&quot;</span><span class="token operator">:</span> <span class="token string">&quot;css&quot;</span><span class="token punctuation">,</span> <span class="token comment">// HTML 공백 감도 설정</span>
+  <span class="token property">&quot;jsxBracketSameLine&quot;</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span> <span class="token comment">// JSX의 마지막 `&gt;`를 다음 줄로 내릴지 여부</span>
+  <span class="token property">&quot;jsxSingleQuote&quot;</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span> <span class="token comment">// JSX에 singe 쿼테이션 사용 여부</span>
+  <span class="token property">&quot;printWidth&quot;</span><span class="token operator">:</span> <span class="token number">80</span><span class="token punctuation">,</span> <span class="token comment">//  줄 바꿈 할 폭 길이</span>
+  <span class="token property">&quot;proseWrap&quot;</span><span class="token operator">:</span> <span class="token string">&quot;preserve&quot;</span><span class="token punctuation">,</span> <span class="token comment">// markdown 텍스트의 줄바꿈 방식 (v1.8.2)</span>
+  <span class="token property">&quot;quoteProps&quot;</span><span class="token operator">:</span> <span class="token string">&quot;as-needed&quot;</span> <span class="token comment">// 객체 속성에 쿼테이션 적용 방식</span>
+  <span class="token property">&quot;semi&quot;</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> <span class="token comment">// 세미콜론 사용 여부</span>
+  <span class="token property">&quot;singleQuote&quot;</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> <span class="token comment">// single 쿼테이션 사용 여부</span>
+  <span class="token property">&quot;tabWidth&quot;</span><span class="token operator">:</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token comment">// 탭 너비</span>
+  <span class="token property">&quot;trailingComma&quot;</span><span class="token operator">:</span> <span class="token string">&quot;all&quot;</span><span class="token punctuation">,</span> <span class="token comment">// 여러 줄을 사용할 때, 후행 콤마 사용 방식</span>
+  <span class="token property">&quot;useTabs&quot;</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span> <span class="token comment">// 탭 사용 여부</span>
+  <span class="token property">&quot;vueIndentScriptAndStyle&quot;</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> <span class="token comment">// Vue 파일의 script와 style 태그의 들여쓰기 여부 (v1.19.0)</span>
+  <span class="token property">&quot;parser&quot;</span><span class="token operator">:</span> ''<span class="token punctuation">,</span> <span class="token comment">// 사용할 parser를 지정, 자동으로 지정됨</span>
+  <span class="token property">&quot;filepath&quot;</span><span class="token operator">:</span> ''<span class="token punctuation">,</span> <span class="token comment">// parser를 유추할 수 있는 파일을 지정</span>
+  <span class="token property">&quot;rangeStart&quot;</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token comment">// 포맷팅을 부분 적용할 파일의 시작 라인 지정</span>
+  <span class="token property">&quot;rangeEnd&quot;</span><span class="token operator">:</span> Infinity<span class="token punctuation">,</span> <span class="token comment">// 포맷팅 부분 적용할 파일의 끝 라인 지정,</span>
+  <span class="token property">&quot;requirePragma&quot;</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span> <span class="token comment">// 파일 상단에 미리 정의된 주석을 작성하고 Pragma로 포맷팅 사용 여부 지정 (v1.8.0)</span>
+  <span class="token property">&quot;insertPragma&quot;</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span> <span class="token comment">// 미리 정의된 @format marker의 사용 여부 (v1.8.0)</span>
+  <span class="token property">&quot;overrides&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">{</span>
+      <span class="token property">&quot;files&quot;</span><span class="token operator">:</span> <span class="token string">&quot;*.json&quot;</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;options&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token property">&quot;printWidth&quot;</span><span class="token operator">:</span> <span class="token number">200</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token comment">// 특정 파일별로 옵션을 다르게 지정함, ESLint 방식 사용</span>
+<span class="token punctuation">}</span>
+</code></pre></div></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/vueStudy/vp-00-basic.html" class="prev">
+        Plugins
+      </a></span> <span class="next"><a href="/vueStudy/vp-02-pwa.html">
+        Progressive Web Application
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.ccdd7dc9.js" defer></script><script src="/assets/js/2.cd210312.js" defer></script><script src="/assets/js/19.9dcf5086.js" defer></script>
+  </body>
+</html>
