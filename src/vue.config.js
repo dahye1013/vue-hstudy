@@ -9,7 +9,7 @@ const PreloadWebpackPlugin = require('@vue/preload-webpack-plugin');
 
 module.exports = {
   publicPath:
-    process.env.NODE_ENV === 'production' ? '/production-sub-path' : '/',
+    process.env.NODE_ENV === 'production' ? '/my-hstudy-project' : '/',
   // [웹팩 옵션 추가]--------------------------------------------
   configureWebpack: {
     plugins: [

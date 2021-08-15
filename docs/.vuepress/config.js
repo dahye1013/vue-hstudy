@@ -41,6 +41,10 @@ module.exports = {
         text: 'Vue-Press',
         link: '/vuePress/',
       },
+      {
+        text: 'other-CS',
+        link: '/otherCS/',
+      },
       // {
       //   text: "VuePress",
       //   link: "https://v1.vuepress.vuejs.org",
@@ -61,12 +65,20 @@ module.exports = {
             '05-mode-and-environment-variables',
             '06-build-target',
             '07-troubleshoting',
+            '08-deployment',
           ],
         },
         {
           title: 'VUE-Plugin',
           collapsable: false,
           children: ['vp-00-basic', 'vp-01-prettier', 'vp-02-pwa'],
+        },
+      ],
+      '/otherCS/': [
+        {
+          title: 'other-cs',
+          collapsable: false,
+          children: ['', 'cors'],
         },
       ],
     },

@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import Home from '../views/Home.vue';
+import NotFoundComponent from '../components/NotFoundComponent';
 
 Vue.use(VueRouter);
 
@@ -22,9 +23,12 @@ const routes = [
 ];
 
 const router = new VueRouter({
-  // mode: 'history',
+  mode: 'history',
+  routes: [
+    { path: '*', component: NotFoundComponent, name: 'NotFound' },
+    ...routes,
+  ],
   base: process.env.BASE_URL,
-  routes,
 });
 
 export default router;
