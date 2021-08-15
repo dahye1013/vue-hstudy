@@ -1,4 +1,4 @@
-# Browser Compatibility
+# 브라우저 호환성
 
 ## Browserslist
 
@@ -44,7 +44,19 @@
 
 ## Polyfills
 
-- 기본 Vue CLI 프로젝트에서는 @vue/babel-preset-app 을 사용하여, @babel/preset-env and the browserslist 설정에 따라서 프로젝트에 해당 폴리필을 수행한다.
+### JavaScript에서의 폴리필
+
+- 스크립트를 끊임없이 진화하는 언어라서 새로운 제안(proposal)이 정기적으로 등록되고 가치 있다고 판단되는 제안은 [https://tc39.github.io/ecma262/](https://tc39.github.io/ecma262/) 에 등록 된 후, 명세서에 올라오기도 한다.
+
+  ⇒ 새로운 문법이나 내장 함수의 정의가 지속적으로 추가된다.
+
+- 변경된 표준을 준수하도록 트랜스파일러 등을 통해 변경된 표준을 준수 할 수 있게 하는 것을 **폴리필(poly fill)** 이라고 부른다.
+
+  ⇒ 구현이 누락된 새로운 기능을 매꾸는 (fill in) 역할을 수행
+
+### Vue에서의 폴리필
+
+- 기본 Vue CLI 프로젝트에서는 `@vue/babel-preset-app`을 사용하여, @babel/preset-env and the browserslist 설정에 따라서 프로젝트에 해당 폴리필을 수행한다.
 
 ### useBuiltIns: 'usage'
 
@@ -53,25 +65,32 @@
 만약 다음과 같은 폴리필이 종속성을 가질때, 선택할 수 있는 옵션들이 있다.
 
 1. **종속성이 당신의 대상으로 하는 환경을 지원하지 않는 ES 버전으로 작성된 경우.**
-
-   - 해당 종속성을  `vue.config.js` 에서 **`[transpileDependencies](https://cli.vuejs.org/config/#transpiledependencies)`** 옵션에 추가한다
-
-     - `**vue.config.js**`
-
-       `vue.config.js` is an optional config file that will be automatically loaded by `@vue/cli-service` if it's present in your project root (next to `package.json`). You can also use the `vue` field in `package.json`, but do note in that case you will be limited to JSON-compatible values only.
-
-       The file should export an object containing options:
-
-       [Configuration Reference | Vue CLI](https://cli.vuejs.org/config/#vue-config-js)
-
+   - 해당 종속성을  `[vue.config.js`](https://www.notion.so/5138007f606b41039e85df827f127b20) 에서 **`[transpileDependencies](https://cli.vuejs.org/config/#transpiledependencies)`** 옵션에 추가한다
 2. **종속성이 ES5 코드를 제공하고 필요한 폴리필을 명시적으로 나열하는 경우**
+
+   - @vue/babel-preset-app에 필요한 설정 옵션을 포함 시킨다.
+   - es.promise의 경우, 기본적으로 포함되어 있다.
+
+   ```jsx
+   // babel.config.js
+   module.exports = {
+     presets: [
+       [
+         '@vue/app',
+         {
+           polyfills: ['es.promise', 'es.symbol'],
+         },
+       ],
+     ],
+   };
+   ```
+
+   > 이러한 방식으로 폴리필 대상을 더하는 것을 추천한다.
+   > → 이 방식을 사용하면 `browserslist`대상이 아닐 때, 폴리필 대상에서 자동으로 배제된다.
+
 3. **종속성이 ES5 코드를 제공하지만 폴리필 요구 사항을 명시적으로 나열하지 않고 ES6+ 기능을 사용하는 경우(예: Vuetify)**
-4.
 
-If one of your dependencies need polyfills, you have a few options:
-
-1. **If the dependency is written in an ES version that your target environments do not support:** Add that dependency to the **`[transpileDependencies](https://cli.vuejs.org/config/#transpiledependencies)`** option in `vue.config.js`. This would enable both syntax transforms and usage-based polyfill detection for that dependency.
-2. **If the dependency ships ES5 code and explicitly lists the polyfills needed:** you can pre-include the needed polyfills using the **[polyfills](https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/babel-preset-app#polyfills)** option for `@vue/babel-preset-app`. **Note that `es.promise` is included by default because it's very common for libs to depend on Promises.**
+   `useBuiltIns: 'entry'` `import 'core-js/stable';` `import 'regenerator-runtime/runtime';` 를 entry 파일에 더한다. 이 방식은 `browserslist` 타겟으로 하여 폴리필에 대한 종속성 걱정 없이, 필요없는 부분을 번들링하지 않도록 한다.
 
 [GitHub - browserslist/browserslist: 🦔 Share target browsers between different front-end tools, like Autoprefixer, Stylelint and babel-preset-env](https://github.com/browserslist/browserslist)
 
@@ -100,6 +119,4 @@ vue-cli-service build --modern
 
 — Hello World 앱의 경우 최신 번들은 이미 16% 더 작다. 프로덕션에서 최신 번들은 일반적으로 구문 분석 및 평가 속도가 훨씬 빨라져 앱의 로드 성능이 향상된다.
 
->
-
- <script type="model"> 는 CORS가 항상 활성화된 상태로 로드됩니다. 즉, 서버에서 유효한 CORS 헤더, 예를 들면 `Access-Control-Allow-Origin: *` 을 받아야합니다.
+> <script type="model"> 는 CORS가 항상 활성화된 상태로 로드됩니다. 즉, 서버에서 유효한 CORS 헤더, 예를 들면 `Access-Control-Allow-Origin: *` 을 받아야합니다.
