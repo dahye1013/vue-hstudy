@@ -3,7 +3,7 @@ home: true
 heroImage: /cactus.jpg
 tagline:
 actionText: Quick Start →
-actionLink: /vueStudy/
+actionLink: /vueCLI/
 features:
   - title: Vue-Cli 정리
     details: Vue-CLI ing......
