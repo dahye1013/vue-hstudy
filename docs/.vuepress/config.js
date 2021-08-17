@@ -12,14 +12,7 @@ module.exports = {
    *
    * ref：https://v1.vuepress.vuejs.org/config/#head
    */
-  head: [
-    ['meta', { name: 'theme-color', content: '#3eaf7c' }],
-    ['meta', { name: 'apple-mobile-web-app-capable', content: 'yes' }],
-    [
-      'meta',
-      { name: 'apple-mobile-web-app-status-bar-style', content: 'black' },
-    ],
-  ],
+  head: [['meta', { name: 'theme-color', content: '#3eaf7c' }]],
 
   /**
    * Theme configuration, here is the default theme configuration for VuePress.
@@ -34,12 +27,16 @@ module.exports = {
     lastUpdated: false,
     nav: [
       {
-        text: 'Vue-Study',
-        link: '/vueStudy/',
+        text: 'Vue-CLI',
+        link: '/vueCLI/',
       },
       {
         text: 'Vue-Press',
         link: '/vuePress/',
+      },
+      {
+        text: 'Vue-Router',
+        link: '/vueRouter/',
       },
       {
         text: 'other-CS',
@@ -51,7 +48,7 @@ module.exports = {
       // },
     ],
     sidebar: {
-      '/vueStudy/': [
+      '/vueCLI/': [
         {
           title: 'VUE-CLI',
           collapsable: false,
@@ -72,6 +69,20 @@ module.exports = {
           title: 'VUE-Plugin',
           collapsable: false,
           children: ['vp-00-basic', 'vp-01-prettier', 'vp-02-pwa'],
+        },
+      ],
+      '/vuePress/': [
+        {
+          title: 'Vue-Press',
+          collapsable: false,
+          children: [''],
+        },
+      ],
+      '/vueRouter/': [
+        {
+          title: 'Vue-Router',
+          collapsable: false,
+          children: [''],
         },
       ],
       '/otherCS/': [
