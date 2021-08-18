@@ -192,20 +192,20 @@ router은 window.history APIs를 모방하고 있다.
 
   ⇒ SPA의 changes 빠른 이유임. 전체 페이지를 reload하지 않는것.
 
-- **Router-link intercep the click event**
+- **Router-link intercept the click event**
 
   → router-link의 tag를 살펴보면 a로 구성되어 있는 것을 확인할 수 있다.
 
   →하지만 click 이벤트가 exact하지 않음. 그래서 브라우저에서 reload를 실행하지 않는다.
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/6cb54810-4c3d-46aa-9809-3964ebfd0181/Untitled.png)
+![Untitled](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/6cb54810-4c3d-46aa-9809-3964ebfd0181/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210817%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210817T215615Z&X-Amz-Expires=86400&X-Amz-Signature=3a445f29afc796bebb371eefc970ae78d31d4786cf8054ebf7a315fc85088bf2&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22)
 
 ### Router-Link dev
 
 - Vue 개발자 도구에서 세번째 아이콘을 통해서 router 관련된 path 및 name 정보를 얻을 수 있다.
 - store파일에 router-link에 대한 destination을 선언해놓고 사용하면 더 간편하게 경로를 정리하여 사용할 수 있다.
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/b8e8ba5e-82b5-436f-b4cd-d08838ef2be7/Untitled.png)
+![Untitled](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/b8e8ba5e-82b5-436f-b4cd-d08838ef2be7/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210817%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210817T215634Z&X-Amz-Expires=86400&X-Amz-Signature=33688be4792163692a97e454720d90504b7373071ce76af520a425a3ef9400f2&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22)
 
 ## Lazy Load
 
@@ -305,13 +305,65 @@ router.beforeEach((to, from, next) => {
 
 ## Transition
 
-vue provides us with a transition wrapper component allowing us to add entering or leaving transitions for any element component.
+Vue는 `**transition` 래퍼 컴포넌트를 제공한다.\*\*
 
-when an element is wrapped in a transition component, Vue will automatically check to see if the target element has css transitions or animatioins applied and if is does, the css transition class will be added or removed at the appropriate timings.
+⇒ 모든 엘리먼트 또는 컴포넌트에 대한 진입 / 진출 트랜지션을 추가 가능
+
+- 조건부 렌더링 (`v-if` 사용)
+- 조건부 출력 (`v-show` 사용)
+- 동적 컴포넌트
+- 컴포넌트 루트 노드
+
+```html
+<div id="demo">
+  <button v-on:click="show = !show">Toggle</button>
+  <transition name="fade">
+    <p v-if="show">hello</p>
+  </transition>
+</div>
+```
+
+```css
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+}
+```
+
+`transition` 컴포넌트로 싸여진 엘리먼트가 삽입되거나 제거 될때 일어난다.
+
+1. Vue는 대상 엘리먼트에 CSS 트랜지션 또는 애니메이션이 적용 여부를 자동 감지한다.
+
+   ⇒ CSS 트랜지션 클래스가 적절한 타이밍에 추가 / 제거
+
+2. 트랜지션 컴포넌트가 **[JavaScript 훅](https://kr.vuejs.org/v2/guide/transitions.html#JavaScript-Hooks)**를 제공하면 이러한 훅은 적절한 타이밍에 호출된다/
+3. CSS 트랜지션 / 애니메이션이 감지되지 않고 JavaScript 훅이 제공 되지 않으면 삽입 또는 제거를 위한 DOM 작업이 다음 프레임에서 즉시 실행됩니다 (참고: 이는 Vue의 `nextTick` 개념과는 다른 브라우저 애니메이션 프레임).
+
+### Transition Classes
+
+진입 / 진출 트랜지션에는 6개 클래스가 적용된다.
+
+1. `v-enter`: enter의 시작 상태. 엘리먼트가 삽입되기 전에 적용되고 한 프레임 후에 제거
+2. `v-enter-active`: enter에 대한 활성 및 종료 상태. 엘리먼트가 삽입되기 전에 적용. 트랜지션 / 애니메이션이 완료되면 제거.
+3. `v-enter-to`: **2.1.8 이상 버전에서 지원.** 진입 상태의 끝에서 실행. 엘리먼트가 삽입된 후 (동시에 `v-enter`가 제거됨), 트랜지션/애니메이션이 끝나면 제거되는 하나의 프레임을 추가.
+4. `v-leave`: leave를 위한 시작 상태. 진출 트랜지션이 트리거 될 때 적용되고 한 프레임 후에 제거.
+5. `v-leave-active`: leave에 대한 활성 및 종료 상태. 진출 트랜지션이 트리거되면 적용되고 트랜지션 / 애니메이션이 완료되면 제거.
+6. `v-leave-to`: **2.1.8 이상 버전에서 지원.** 진출 상태의 끝에서 실행. 진출 트랜지션이 트리거되고 (동시에 `v-leave`가 제거됨), 트랜지션/애니메이션이 끝나면 제거되는 하나의 프레임을 추가.
+
+⇒ router-view에 composition 컴포넌트를 래핑하여 다양한 트랜지션을 유도 할 수 있다.
+
+더 자세한 내용은 transition 하단 링크들을 통해서 확인 할 것.
 
 [Enter/Leave & List Transitions - Vue.js](https://vuejs.org/v2/guide/transitions.html#Transition-Classes)
 
 [Transitions | Vue Router](https://router.vuejs.org/guide/advanced/transitions.html#per-route-transition)
+
+[Enter/Leave & List Transitions](https://www.notion.so/Enter-Leave-List-Transitions-482c5409794149f3ab2508dd3eb3979e)
+
+![Untitled](https://vuejs.org/images/transition.png)
 
 ## Data Fetching
 
@@ -707,3 +759,69 @@ scrollBehavior (to, from, savedPosition) {
 [ScrollToOptions.behavior - Web APIs | MDN](https://developer.mozilla.org/en-US/docs/Web/API/ScrollToOptions/behavior)
 
 ## Navigation Failures
+
+`router-link`를 사용할때, vue router는 navigation의 트리거가 되는 `router.push`를 호출한다. 하지만, 특정 상황에서는 새로운 페이지를 이동되지 않고 남아있는 경우가 발생한다.
+
+- 이동하려는 페이지에 이미 있는 경우
+- navigation guard가 `next(false)`를 호출하여 중단시키는 경우
+- navigation guard가 `next(new Error())` 를 던지는 경우
+
+router-link를 사용할 때, 이러한 오류들은 로그되지 않는다. 하지만, `router.push` 혹은 `router.replace`를 사용하는 경우 Uncaught (in promise) Error 메세지와 구체적인 메세지 콘솔에서 확인 할 수 있다.
+
+> **Background story**
+> In v3.2.0, Navigation Failures were exposed through the two optional callbacks of `router.push`: `onComplete` and `onAbort`.
+> Since version 3.1.0, `router.push` and `router.replace` return a Promise if no `onComplete`/`onAbort` callback is provided. This Promise resolves instead of invoking `onComplete` and rejects instead of invoking `onAbort`.
+
+-
+
+### Detecting Navigation Failures
+
+### NavigationFailureType
+
+Navigation Failures 들은 몇가지 속성을 가지고 있는 인스턴스이다.
+
+Router에서 에러를 확인하고 싶으면 `isNavigationFailure` 펑션을 활용하면 된다.
+
+```jsx
+import VueRouter from 'vue-router';
+const { isNavigationFailure, NavigationFailureType } = VueRouter;
+
+// trying to access the admin page
+router.push('/admin').catch((failure) => {
+  if (isNavigationFailure(failure, NavigationFailureType.redirected)) {
+    // show a small notification to the user
+    showToast('Login in order to access the admin panel');
+  }
+});
+```
+
+- 두 번째 매개 변수(`isNavigationFailure(failure)`)를 생략하면 타입 체크하지 않고, Navigation Failure인지만 체크한다.
+
+### `NavigationFailureType`
+
+`NavigationFailureType` 은 개발자가 다양한 navigation 실패 유형을 구분하는 것을 돕는다.
+
+이것은 4가지 타입으로 구분된다.
+
+- `redirected`: `next(newLocation)` 내부 네비게이션 가드에서 redirect로 다른 곳으로 호출됨
+- `aborted`: `next(false)` 가 네비게이션 가드에서 호출됨.
+- `cancelled`: 현재 네비게이션이 수행이 완료되기 전에 새로운 네비게이션(페이지 이동) 이 발생. ex) navigation guard 대기하는 동안 새로운 `router.push` 발생.
+- `duplicated`: 이미 해당 위치에 있어서 이동이 금지 됨.
+
+  ⇒ error catch할 때, 해당 type들을 활용하면 될듯 .
+
+  ⇒ duplicated라는 error를 catch할 때, 이름
+
+### Navigation Failures's properties
+
+모든 네비게이션 실패는 탐색의 대상 및 현재 위치를 반영한다.
+
+```jsx
+// trying to access the admin page
+router.push('/admin').catch((failure) => {
+  if (isNavigationFailure(failure, NavigationFailureType.redirected)) {
+    failure.to.path; // '/admin'
+    failure.from.path; // '/'
+  }
+});
+```

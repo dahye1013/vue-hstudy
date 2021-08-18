@@ -6,20 +6,20 @@ actionText: Quick Start →
 actionLink: /vueCLI/
 features:
   - title: Vue-Cli 정리
-    details: Vue-CLI ing......
+    details: 21-08-15 1차 완료✔
   - title: Vue-Router
-    details: 😀....,
+    details: 😀✨ ing....,
   - title: Vuex
-    details: 😀....,
+    details: 💭
   - title: Vue Component
-    details: Emit, Props
+    details: 💭 Emit, Props
   - title: Watch
-    details:
+    details: 💭
   - title: Computed
-    details:
+    details: 💭
   - title: ActionMap
-    details:
+    details: 💭
   - title: Set
-    details:
+    details: 💭
 footer: Made by dahye
 ---
