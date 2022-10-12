@@ -1,0 +1,19 @@
+.v-enter {
+  /* starting style */
+  opacity: 0;
+}
+
+.v-enter-active {
+  /* active entering style */
+  transition: opacity 2s ease-in;
+}
+
+.v-leave-active {
+  /* active leaving style */
+  transition: opacity 2s ease-out;
+}
+
+.v-leave-to {
+  /* ending style */
+  opacity: 0;
+}

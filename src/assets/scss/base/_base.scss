@@ -1,0 +1,150 @@
+/* [default 세팅 및 초기화] */
+
+//구글폰트 -- 나눔고딕, lato
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300&family=Nanum+Gothic:wght@400;700;800&display=swap');
+// icon font - https://google.github.io/material-design-icons/#icon-font-for-the-web
+
+// 아이콘 sample 확인 주소 http://material.io/icons
+@import url(https://fonts.googleapis.com/icon?family=Material+Icons);
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  // font-size: 62.5%;
+  // browser기본 폰트 사이즈는 16px
+  // 16px의 62.5% = 10px = 1rem
+}
+body {
+  // font-family: tahoma;
+  // color: #282828;
+  // margin: 0px;
+  padding: 3rem;
+  font-family: 'Lato', sans-serif;
+  font-family: 'Nanum Gothic', sans-serif;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+body {
+  margin: 0;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+}
+// #app {
+//   box-sizing: border-box;
+//   width: 500px;
+//   padding: 0 20px 20px;
+//   margin: 0 auto;
+// }
+hr {
+  box-sizing: content-box;
+  height: 0;
+  overflow: visible;
+}
+
+img {
+  border-style: none;
+  // width: 100%;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  display: flex;
+  align-items: center;
+  font-family: 'Montserrat', sans-serif;
+}
+h1 {
+  font-size: 50px;
+  font-weight: 700;
+}
+h2 {
+  font-size: 38px;
+  font-weight: 700;
+}
+h3 {
+  font-size: 28px;
+  font-weight: 700;
+}
+h4 {
+  font-size: 21px;
+  font-weight: 700;
+}
+h5 {
+  font-size: 16px;
+  font-weight: 700;
+}
+h6 {
+  font-size: 15px;
+  font-weight: 700;
+}
+b,
+strong {
+  font-weight: bolder;
+}
+small {
+  font-size: 80%;
+}
+
+a {
+  color: #39b982;
+  font-weight: 600;
+  background-color: transparent;
+}
+
+/* a 링크 스타일 초기화*/
+a {
+  &:link {
+    color: red;
+    text-decoration: none;
+  }
+  &:visited {
+    color: black;
+    text-decoration: none;
+  }
+  &:hover {
+    color: blue;
+    text-decoration: none;
+  }
+}
+
+/* ul 스타일 초기화*/
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+li {
+  display: block;
+  // display: inline-block;
+  margin: 0 10px;
+}
+
+/* form 가운데 정렬---------------------------- */
+
+.form-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 10%;
+}
+/* select ---------------------------- */
+
+select {
+  height: 2rem;
+  border-radius: 5px;
+}
+
+select:focus {
+  border-color: #16c0b0;
+  outline: 0;
+}

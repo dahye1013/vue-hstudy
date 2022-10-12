@@ -1,0 +1,25 @@
+//[추상화]
+@import 'abstract/variables';
+@import 'abstract/mixins';
+
+
+//[기본세팅]
+@import 'base/base';
+@import 'base/animations';
+
+// 컴포넌트도 모듈을 분리할 필요가 있을까??
+// import를 어디에 하느냐에 따라서 빌드되는 사이즈가 달라지는지 확인해봐야할듯
+// @import 'components/button';
+
+
+//[레이아웃] - 이것도 컴포넌트 단위로 쪼갤건데 굳이..?
+/*
+scss 모듈 분리 고민
+header / footer 등과 같은 레이아웃은 어떤 단위로 분리하는게 좋을지
+1. app에 전체 import하는게 하는지
+2. 레이아웃마다 각각 import하는지
+*/
+
+@import 'layout/header';
+@import 'layout/footer';
+@import 'layout/nav';

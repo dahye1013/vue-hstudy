@@ -1,0 +1,32 @@
+footer {
+  color: $color-grey-light;
+  background-color: $color-blue-dark;
+  padding: 2% 3%; //위 오른 아래 왼쪽
+  @include clearFix();
+  //   clearFix하지 않으면 float된 child를 부모에서 읽지 못한다.
+  #logo-text-footer {
+    width: 25%;
+    font-size: 4rem;
+    font-family: 'Lato', sans-serif;
+    font-weight: 100;
+    text-transform: uppercase;
+    float: left;
+  }
+  #copyright {
+    width: 75%;
+    font-size: 1.2rem;
+    float: left;
+
+    // 1번째 자식
+    p:nth-child(1) {
+      margin-bottom: 2rem;
+      word-break: break-all; //길이 맞게 글 짤림
+      text-align: justify; //글정렬 맞게
+      column-count: 3; //가로로 단락 나누기
+      column-gap: 3rem; //단락 간격
+      column-rule-style: dashed;
+      column-rule-width: 1px;
+      column-rule-color: #888;
+    }
+  }
+}

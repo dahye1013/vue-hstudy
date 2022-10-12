@@ -1,32 +1,32 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view />
+    <Header></Header>
+    <Nav></Nav>
+    <NotificationContainer></NotificationContainer>
+    <!-- reload components when the url jchanges
+        - including query parameters -->
+    <router-view class="container" :key="$route.fullPath" />
+    <Footer></Footer>
   </div>
 </template>
+<script>
+import NotificationContainer from '@/components/NotificationContainer.vue';
+import Header from '@/components/layout/Header.vue';
+import Footer from '@/components/layout/Footer.vue';
+import Nav from '@/components/layout/Nav.vue';
+export default {
+  components: {
+    Header,
+    Footer,
+    Nav,
+    NotificationContainer,
+  },
+};
+</script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
+<style lang="scss">
+@import '@/assets/scss';
+.container {
+  padding: 50px 0;
 }
 </style>

@@ -1,0 +1,29 @@
+//CSS에서 제공하는 애니메이션 기능
+@keyframes moveInLeft {
+  0% {
+    opacity: 0;
+    // opacity: 0.1;
+    transform: translateX(-5rem);
+  }
+  80% {
+    transform: translateX(1rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    // opacity: 0.1;
+    transform: translateX(10rem);
+  }
+  80% {
+    transform: translateX(-1rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}

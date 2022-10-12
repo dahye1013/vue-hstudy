@@ -1,0 +1,14 @@
+
+
+/**
+clearFix하지 않으면 float된 child를 부모에서 읽지 못한다.
+다른 컴포넌트에서 include해서 사용해야함.
+*/
+
+@mixin clearFix {
+  &::after {
+    content: '';
+    display: block;
+    clear: both;
+  }
+}

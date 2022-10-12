@@ -1,0 +1,221 @@
+@charset "UTF-8";
+/**
+clearFix하지 않으면 float된 child를 부모에서 읽지 못한다.
+다른 컴포넌트에서 include해서 사용해야함.
+*/
+/* [default 세팅 및 초기화] */
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@100;300&family=Nanum+Gothic:wght@400;700;800&display=swap");
+@import url(https://fonts.googleapis.com/icon?family=Material+Icons);
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  padding: 3rem;
+  font-family: 'Lato', sans-serif;
+  font-family: 'Nanum Gothic', sans-serif;
+}
+
+/* a 링크 스타일 초기화*/
+a:link {
+  color: red;
+  text-decoration: none;
+}
+
+a:visited {
+  color: black;
+  text-decoration: none;
+}
+
+a:hover {
+  color: blue;
+  text-decoration: none;
+}
+
+/* ul 스타일 초기화*/
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  display: block;
+  margin: 0 10px;
+}
+
+@-webkit-keyframes moveInLeft {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(-5rem);
+            transform: translateX(-5rem);
+  }
+  80% {
+    -webkit-transform: translateX(1rem);
+            transform: translateX(1rem);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+
+@keyframes moveInLeft {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(-5rem);
+            transform: translateX(-5rem);
+  }
+  80% {
+    -webkit-transform: translateX(1rem);
+            transform: translateX(1rem);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+
+@-webkit-keyframes moveInRight {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(10rem);
+            transform: translateX(10rem);
+  }
+  80% {
+    -webkit-transform: translateX(-1rem);
+            transform: translateX(-1rem);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(10rem);
+            transform: translateX(10rem);
+  }
+  80% {
+    -webkit-transform: translateX(-1rem);
+            transform: translateX(-1rem);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+
+/*
+scss 모듈 분리 고민
+header / footer 등과 같은 레이아웃은 어떤 단위로 분리하는게 좋을지
+1. app에 전체 import하는게 하는지
+2. 레이아웃마다 각각 import하는지
+*/
+header {
+  width: 100%;
+  height: 200px;
+  background-image: -webkit-gradient(linear, left top, right top, from(#3f4a56), to(#fff));
+  background-image: linear-gradient(to right, #3f4a56 0%, #fff 100%);
+  background-size: cover;
+  background-blend-mode: multiply;
+}
+
+header .logo-text {
+  position: absolute;
+  left: 5rem;
+  top: 5rem;
+  font-size: 5.6rem;
+  text-transform: uppercase;
+  font-family: 'Lato', sans-serif;
+  font-weight: 100;
+  color: #fff;
+  letter-spacing: -0.5rem;
+  -webkit-animation-name: moveInLeft;
+          animation-name: moveInLeft;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
+  -webkit-animation-delay: 0.1s;
+          animation-delay: 0.1s;
+  -webkit-animation-fill-mode: backwards;
+          animation-fill-mode: backwards;
+}
+
+footer {
+  color: #b9b9b9;
+  background-color: #3f4a56;
+  padding: 2% 3%;
+}
+
+footer::after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+footer #logo-text-footer {
+  width: 25%;
+  font-size: 4rem;
+  font-family: 'Lato', sans-serif;
+  font-weight: 100;
+  text-transform: uppercase;
+  float: left;
+}
+
+footer #copyright {
+  width: 75%;
+  font-size: 1.2rem;
+  float: left;
+}
+
+footer #copyright p:nth-child(1) {
+  margin-bottom: 2rem;
+  word-break: break-all;
+  text-align: justify;
+  -webkit-column-count: 3;
+          column-count: 3;
+  -webkit-column-gap: 3rem;
+          column-gap: 3rem;
+  -webkit-column-rule-style: dashed;
+          column-rule-style: dashed;
+  -webkit-column-rule-width: 1px;
+          column-rule-width: 1px;
+  -webkit-column-rule-color: #888;
+          column-rule-color: #888;
+}
+
+.nav {
+  color: white;
+  background-color: #42b883;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 20px;
+  font-size: 20px;
+}
+
+/* router 활성화된 페이지 표시 */
+.nav .router-link-exact-active {
+  color: white;
+}
+
+/* router 비활성화된 페이지 표시 */
+.nav a {
+  padding-right: 20px;
+  color: #35495e;
+}
+/*# sourceMappingURL=index.css.map */
