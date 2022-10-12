@@ -5,21 +5,11 @@ tagline:
 actionText: Quick Start →
 actionLink: /vueCLI/
 features:
-  - title: Vue-Cli 정리
-    details: 21-08-15 1차 완료✔
+  - title: Vue-Cli
+    details: 21-08 ✔
   - title: Vue-Router
-    details: 😀✨ ing....,
-  - title: Vuex
-    details: 💭
-  - title: Vue Component
-    details: 💭 Emit, Props
-  - title: Watch
-    details: 💭
-  - title: Computed
-    details: 💭
-  - title: ActionMap
-    details: 💭
-  - title: Set
-    details: 💭
+    details: 21-09 ✔
+  - title: Vuex sampling
+    details: 21-10 ✔
 footer: Made by dahye
 ---
